@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  phpunit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/myapp
+    working_dir: /usr/src/myapp
+    #command: javac /usr/src/myapp/src/HashCode.java
+    command: phpunit tests/TestHash.php
