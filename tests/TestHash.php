@@ -10,7 +10,7 @@ class TestHash extends TestCase
     {
         $phpHash = Java::javaStringHashCode($s);
         $javaHash = $this->callJavaToGetHash($s);
-        $this->assertSame((string) $phpHash, (string)$javaHash);
+        $this->assertSame((string)$phpHash, (string)$javaHash);
     }
 
     public function providerTestJavaHash()
@@ -417,6 +417,23 @@ class TestHash extends TestCase
             ['Komatsu Takaka' => 'Komatsu Takaka'],
             ['Volvo Haast' => 'Volvo Haast'],
             ['Ford Milford Sound' => 'Ford Milford Sound'],
+            'War has changed' => ['War has changed'],
+            'Kept you waiting, huh?' => ['Kept you waiting, huh?'],
+            'I’m no hero. Never was. Never will be.' => ['I’m no hero. Never was. Never will be.'],
+            'The world has room for only one big boss!' => ['The world has room for only one big boss!'],
+            'You’re pretty good.' => ['You’re pretty good.'],
+            'Snake? SNAKE? SNAAAAKE!' => ['Snake? SNAKE? SNAAAAKE!'],
+            'A strong man doesn’t need to read the future. He makes his own.' => ['A strong man doesn’t need to read the future. He makes his own.'],
+            'Building the future and keeping the past alive are one and the same thing.' => ['Building the future and keeping the past alive are one and the same thing.'],
+            'It’s not over yet!' => ['It’s not over yet!'],
+            'Unfortunately, killing is one of those things that gets easier the more you do it.' => ['Unfortunately, killing is one of those things that gets easier the more you do it.'],
+            'I am the lightning. The rain transformed.' => ['I am the lightning. The rain transformed.'],
+            'We’re not just pawns in some simulation game, you know.' => ['We’re not just pawns in some simulation game, you know.'],
+            'Life’s end… isn’t it beautiful? It’s almost tragic.' => ['Life’s end… isn’t it beautiful? It’s almost tragic.'],
+            'There’s no such thing as miracles or the supernatural. Only cutting-edge technology.' => ['There’s no such thing as miracles or the supernatural. Only cutting-edge technology.'],
+            'You can’t fight nature, Jack.' => ['You can’t fight nature, Jack.'],
+            'The world would be better off without Snakes.' => ['The world would be better off without Snakes.'],
+            'The moment you close your eyes on the battlefield is the moment you never open them again.' => ['The moment you close your eyes on the battlefield is the moment you never open them again.'],
         ];
     }
 
