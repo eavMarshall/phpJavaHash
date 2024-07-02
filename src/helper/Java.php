@@ -11,6 +11,12 @@ class Java
     /**
      * PHP implementation of https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#hashCode()
      * for utf8 strings
+     *
+     * Java strings are always utf-16
+     * https://stackoverflow.com/questions/43482364/java-implementation-of-phps-ord-yields-different-results-for-chars-beyond-as
+     *
+     * This would be better converting to UTF-16BE to accommodate unicode chars
+     *
      * @param string $s
      * @return int
      */
@@ -19,7 +25,6 @@ class Java
         $hash = 0;
         $bitmask32 = 0xFFFFFFFF; // 32-bit mask to emulate 32-bit int overflow behavior
         $maxInt32 = 0x7FFFFFFF; // max value for a 32-bit signed integer
-
         $n = mb_strlen($s, 'UTF-8');
 
         for ($i = 0; $i < $n; $i++) {
