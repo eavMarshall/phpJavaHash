@@ -15,10 +15,9 @@ class Java
      * https://stackoverflow.com/questions/43482364/java-implementation-of-phps-ord-yields-different-results-for-chars-beyond-as
      *
      * @param string $s
-     * @param string $stringEncoding
      * @return int
      */
-    public static function javaStringHashCode(string $s, string $stringEncoding = 'UTF-16'): int
+    public static function javaStringHashCode(string $s): int
     {
         /*
             // java implementation
@@ -38,13 +37,12 @@ class Java
         $h = 0;
         $bitmask32 = 0xFFFFFFFF; // 32-bit mask to emulate 32-bit int overflow behavior
         $maxInt32 = 0x7FFFFFFF; // max value for a 32-bit signed integer
-        $s = mb_convert_encoding($s, $stringEncoding);
-        $n = mb_strlen($s, $stringEncoding);
+        $utf16Str = mb_convert_encoding($s, 'UTF-16', 'UTF-8');
+        $n = strlen($utf16Str) / 2; // each UTF-16 character is 2 bytes
 
         for ($i = 0; $i < $n; $i++) {
-            // $s[$i] accesses a single byte, mb_substr will get whole character
-            $char = mb_substr($s, $i, 1, $stringEncoding);
-            $asciiCode = mb_ord($char, $stringEncoding);
+            // mb_ord doesn't work for emojis, found this hack instead
+            $asciiCode = (ord($utf16Str[$i * 2]) << 8) + ord($utf16Str[$i * 2 + 1]);
             // h = 31 * h + val[i];
             $h = (31 * $h + $asciiCode) & $bitmask32;
         }
