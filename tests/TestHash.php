@@ -34,8 +34,28 @@ class TestHash extends TestCase
             ["Java hashCode"],
             ["PHP hashCode"],
             ["!@#$%^&*()_+[];'./,<>?:\"{}|"],
-            ["特殊字符"], // special characters
-            ["😊👍🏽✨"], // emojis
+            ["特殊字符"], // Chinese characters
+            ["😊👍🏽✨"], // Emojis
+            ["こんにちは"], // Japanese characters
+            ["안녕하세요"], // Korean characters
+            ["Здравствуйте"], // Russian characters
+            ["مرحبا"], // Arabic characters
+            ["👩‍💻"], // Emoji with ZWJ sequence
+            ["👨‍🚀"], // Emoji with ZWJ sequence
+            ["🚀✨💫"], // Multiple emojis
+            ["foo©bar"], // String with special character
+            ["emoji😊mix✨up"], // Mixed emoji and text
+            ["spaces and tabs\t "], // String with space and tab
+            ["中文字符测试"], // Chinese characters
+            ["🎉🎈🎂"], // Multiple emojis
+            ["𠜎𠜱𠝹"], // Rare Chinese characters
+            ["HTML <b>bold</b>"], // HTML-like string
+            ["Café au lait"], // String with accented character
+            ["Jalapeño"], // String with accented character
+            ["Русский текст"], // Russian text
+            ["Español"], // Spanish text
+            ["Löwenbräu"], // German text with umlaut
+            ["Français"], // French text with cedilla
             ['Google'],
             ['Microsoft'],
             ['Amazon'],
@@ -453,6 +473,33 @@ class TestHash extends TestCase
             ['You can’t fight nature, Jack.'],
             ['The world would be better off without Snakes.'],
             ['The moment you close your eyes on the battlefield is the moment you never open them again.'],
+            ["Time to do some serious damage."],
+            ["This is my kind of rain."],
+            ["Hey, look! Rocket fuel."],
+            ["Ooh, shiny."],
+            ["Looks like I'm gonna have to kill these guys."],
+            ["It's time to get serious."],
+            ["This is not happening."],
+            ["Houston, we have a problem."],
+            ["Another day, another deathmatch."],
+            ["Let's get down to business."],
+            ["I ain't got time to bleed."],
+            ["Oh, this is gonna be fun."],
+            ["Hey, I remember this place."],
+            ["They just keep coming."],
+            ["I'm too young to die!"],
+            ["Rest in pieces."],
+            ["I didn't come here to lose."],
+            ["I'll be back."],
+            ["Hasta la vista, baby."],
+            ["The future is not set. There is no fate but what we make for ourselves."],
+            ["I know now why you cry, but it’s something I can never do."],
+            ["Come with me if you want to live."],
+            ["It's in your nature to destroy yourselves."],
+            ["I need your clothes, your boots, and your motorcycle."],
+            ["You just can't go around killing people!"],
+            ["Are you afraid?"],
+            ["I swear I will not kill anyone."],
         ];
     }
 
